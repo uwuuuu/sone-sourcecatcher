@@ -16,9 +16,9 @@ then
   rm -f $WORKING_DIR/*
 
   source ./sourcecatcher_venv/bin/activate
-  python bot.py
-  python gen_phashes.py
-  python feature_match.py
+  python3 bot.py
+  python3 gen_phashes.py
+  python3 feature_match.py
 
   cp $WORKING_DIR/twitter_scraper.db $LIVE_DIR
   cp $WORKING_DIR/phash_index.ann $LIVE_DIR
