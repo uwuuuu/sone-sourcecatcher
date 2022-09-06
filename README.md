@@ -1,14 +1,13 @@
-# [sourcecatcher.com](https://www.sourcecatcher.com)
-A reverse image search tool for InSomnia
+# [sourcecatcher.sone.pw](https://sourcecatcher.sone.com)
+A reverse image search tool for ~~InSomnia~~ SONE
 
-See the [Reddit release thread](https://www.reddit.com/r/dreamcatcher/comments/c923qp/sourcecatchercom_a_reverse_image_search_tool_for/) for more information about Sourcecatcher
+Fork of [Sourcecatcher.com](https://www.sourcecatcher.com) and [Github.](https://github.com/evanc577/sourcecatcher)
 
 ---
 
 ## Setup
 
-Sourcecatcher has been tested on Arch Linux and Ubuntu 19.04.
-It should also work on many other Linux distros.
+Updated for Ubuntu 22.04 & Python 3.10.4
 
 ### Install requirements
 
@@ -21,7 +20,7 @@ It should also work on many other Linux distros.
 Sourcecatcher has been tested on python 3.7, but should work on other recent versions of python 3 also
 
 ```bash
-python -m venv sourcecatcher_venv           # create python virtual environment
+python3 -m venv sourcecatcher_venv           # create python virtual environment
 source ./sourcecatcher_venv/bin/activate
 pip install -r requirements.txt
 ````
@@ -39,6 +38,10 @@ users:
   - "user 2"
   - "user 3"
 ```
+
+Where Twitter users are usernames. No @.
+
+Twitter API v2 Elevated access is required.
 
 ### Create and update the database
 
@@ -70,7 +73,7 @@ User=YOUR_USER
 Group=www-data
 WorkingDirectory=/PATH/TO/sourcecatcher
 Environment="PATH=/PATH/TO/sourcecatcher/sourcecatcher_venv/bin:/usr/bin"
-ExecStart=/PATH/TO/sourcecatcher/sourcecatcher_venv/bin/gunicorn -c gunicorn.config.py -w 9 -b unix:sourcecatcher.sock -m 007 wsgi:app
+ExecStart=/PATH/TO/sourcecatcher/sourcecatcher_venv/bin/gunicorn -c gunicorn.config.py -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
