@@ -73,7 +73,7 @@ User=YOUR_USER
 Group=www-data
 WorkingDirectory=/PATH/TO/sourcecatcher
 Environment="PATH=/PATH/TO/sourcecatcher/sourcecatcher_venv/bin:/usr/bin"
-ExecStart=/PATH/TO/sourcecatcher/sourcecatcher_venv/bin/gunicorn -c gunicorn.config.py -m 007 wsgi:app
+ExecStart=/PATH/TO/sourcecatcher/sourcecatcher_venv/bin/gunicorn -c gunicorn.config.py -w 9 -b IP:PORT -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
