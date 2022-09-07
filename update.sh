@@ -30,11 +30,11 @@ cp $LIVE_DIR/BOW_index.ann $WORKING_DIR
 
 source ./sourcecatcher_venv/bin/activate
 echo "starting ingest"
-python bot.py
+python3 bot.py
 echo "starting phash"
-python gen_phashes.py
+python3 gen_phashes.py
 echo "staring feature match"
-python feature_match.py
+python3 feature_match.py
 
 echo "moving to live directory"
 mv -f $WORKING_DIR/twitter_scraper.db $LIVE_DIR
